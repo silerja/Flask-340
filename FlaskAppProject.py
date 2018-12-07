@@ -1,5 +1,7 @@
 __author__ = 'Tony Teate'
 
+__author__ = 'Edits by. Joe Siler and Alex Martin'
+
 #imports
 import sqlite3
 from flask import Flask, render_template
@@ -12,10 +14,18 @@ app = Flask(__name__)
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Credentials. Please try again.'
+        username = request.form['username']
+        password = request.form['password']
+        conn = sqlite3.connect('celebrities.db')
+        c = conn.cursor()
+        find_user = ("SELECT * FROM members where username = ? AND password = ?")
+        c.execute(find_user, [(username), (password)])
+        results = c.fetchall()
+        if results:
+            for i in results:
+                return redirect(url_for('info'))
         else:
-            return redirect(url_for('info'))
+            error = 'Invalid Credentials. Please try again.'
     return render_template('login.htm', error=error)
 
 @app.route('/info', methods=['GET', 'POST'])
