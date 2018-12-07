@@ -1,0 +1,61 @@
+<!doctype html/>
+<html>
+  <head>
+    <title>Flask App - Profile page</title>
+	<link type="text/css" rel="stylesheet" href="static/profile_stylesheet.css"/>
+  </head>
+  
+<body>
+ <fieldset style="border:1px solid #">
+	<legend>Profile Information:</legend>
+  <form action="" method="post">
+  <table border="1">
+  <br>
+  <br>
+  <text> Please <strong>update</strong> your profile information on the foloowing form </text>
+  <br>
+  <text><i>All fields are required and must contain valid information<i></text>
+  <br>
+  <br>
+	<tr>
+		<th>Member ID:</th>
+		<td><input type="text" name="memberID" value="{{memberID}}" required></td>
+	</tr>
+	<tr>
+		<th>First Name:</th>
+		<td><input type="text" name="firstname" value="{{firstname}}" required></td>
+	</tr>
+	<tr>
+		<th>Last Name:</th> 
+		<td><input type="text" name="lastname" value="{{lastname}}" required></td>
+	</tr>
+	<tr>
+		<th>Age:</th>
+		<td><input type="Integer" name="age" value="{{age}}" required></td>
+	</tr>
+	<tr>
+		<th>E-mail:</th>
+		<td><input type="text" name="email" value="{{email}}" required> e.g. user@domain.com</td>
+	</tr>
+	<tr>
+		<th><img src="{{ url_for('static', filename = 'JoeS.jpg') }}" width="110" height="130"></th>
+		<td><textarea name="bio" rows=4 cols = 50>{{bio}} </textarea></td>
+	</tr>
+	<tr>
+		<th colspan ="2" align="left"><input type="submit" value="Update Information"></th>
+	</tr>
+  {% if success %}
+	  <h3 style="color:magenta;">Data successfully submitted to the database!</h3>
+  {% endif %}
+  </table>
+  <br>
+  <br>
+ </fieldset>
+</form>
+
+<a href ="/view_all_celebs"> Click to view all of the celebrities</a>
+ <br>
+<a href ="/view_one_celeb"> Click to view one the celebrities</a>
+
+</body>
+</html>
