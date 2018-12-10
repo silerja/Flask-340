@@ -1,5 +1,3 @@
-__author__ = 'Tony Teate'
-
 __author__ = 'Edits by. Joe Siler and Alex Martin'
 
 #imports
