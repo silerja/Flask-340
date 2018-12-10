@@ -1,10 +1,17 @@
 body{
-	background-color:yellow;
-	font:Serif;
-	text-align:center;
+	background-color: yellow;
+	font: Serif;
+	text-align: center;
+	table-align: center;
+	margin: 0;
+    padding: 0;
 	
 }
 a{
-	font:Serif;
+	font: Serif;
 	
+}
+form {
+    width: 500px;
+    margin: 0 auto;
 }

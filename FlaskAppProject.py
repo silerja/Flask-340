@@ -110,7 +110,7 @@ def viewone():
 
     conn = sqlite3.connect('celebrities.db')
     c = conn.cursor()
-    c.execute("SELECT * FROM Celebs where celebID = 3")
+    c.execute("SELECT * FROM Celebs where celebID = 1")
     rows = c.fetchone()
     celebID = rows[0]
     firstname = rows[1]
